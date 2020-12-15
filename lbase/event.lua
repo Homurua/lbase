@@ -43,7 +43,7 @@ function Event:dispatch(eventName, eventArgs)
 	for targetObj, callbackName in pairs(listenList) do
 		xpcall(function()
 			if eventArgs then
-				targetObj[callbackName](targetObj, eventName, unpack(eventArgs))
+				targetObj[callbackName](targetObj, eventName, table.unpack(eventArgs))
 			else
 				targetObj[callbackName](targetObj, eventName)
 			end
@@ -82,7 +82,7 @@ local function test()
 		end
 	end
 
-	Src:work(unpack(eventArgs))
+	Src:work(table.unpack(eventArgs))
 	assert(finishEvent)
 
 	Event:remove("work")

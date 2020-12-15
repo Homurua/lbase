@@ -158,7 +158,7 @@ end
 --- @param s string Table in string mode.
 --- @return table
 function string.totable(s)
-	return loadstring("return ".. s)()
+	return load("return ".. s)()
 end
 
 ---
