@@ -113,10 +113,7 @@ function table.print(t)
 
 		local index = printSetting.index
 		local outIndex = string.rep(index, deep)
-		if deep == 1 then
-			print(format("%s %s", outIndex, valueString(any)))
-		end
-		print(format("%s {", outIndex))
+		print(format("%s{", outIndex))
 
 		local inIndex = outIndex .. index
 		for k, v in pairs(any) do
@@ -133,11 +130,11 @@ function table.print(t)
 				end
 			end
 		end
-		print(format("%s }", outIndex))
+		print(format("%s}", outIndex))
 	end
 
 	printed[t] = printSetting.defaultRootName
-	innerPrint(t, 1, printed[t])
+	innerPrint(t, 0, printed[t])
 end
 
 ---
