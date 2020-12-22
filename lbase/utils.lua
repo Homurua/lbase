@@ -95,9 +95,6 @@ function Utils.serialize(t, optimize)
 	}
 
 	local index = "    "
-
-	optimize = optimize or false
-
 	local processedTable = {}
 	local function process(t, name, deep)
 		if t.__type == TABLE_TYPE.OBJECT then
